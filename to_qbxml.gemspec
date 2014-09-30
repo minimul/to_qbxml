@@ -10,19 +10,19 @@ Gem::Specification.new do |gem|
   gem.email         = ["christian@minimul.com"]
   gem.description   = %q{Ruby Hash to QuickBooks XML Request}
   gem.summary       = %q{Takes Ruby Hash and turns it into QuickBooks XML Request}
-  gem.homepage      = ""
+  gem.homepage      = "http://minimul.com"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency('activesupport', '>= 3.2.9')
-  gem.add_dependency('nokogiri', '~> 1.6.0')
-  gem.add_dependency('builder', '~> 3.0.0')
-  gem.add_dependency('json', '~> 1.8.1')
+  gem.add_dependency('activesupport', '~> 3.2')
+  gem.add_dependency('nokogiri', '~> 1.6')
+  gem.add_dependency('builder', '~> 3.0')
+  gem.add_dependency('json', '~> 1.8')
 
-  gem.add_development_dependency('bundler')
-  gem.add_development_dependency('rake')
-  gem.add_development_dependency('rspec', '~> 3.1.0')
+  gem.add_development_dependency('bundler', '~> 1.5')
+  gem.add_development_dependency('rake', '~> 10.1')
+  gem.add_development_dependency('rspec', '~> 3.1', '>= 3.1.0')
 end
