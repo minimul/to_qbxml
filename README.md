@@ -175,22 +175,22 @@ attrs = { 'requestID' => 34, 'iterator' => 'Continue', 'iteratorID' => '{2343333
 Takes 2 arguments:
 
 1. a Hash. This is to be the body of the QBXML request.
-2. a Hash of options. See this method for a full list.
+2. a Hash of options. See this [method](https://github.com/minimul/to_qbxml/blob/master/lib/to_qbxml/to_qbxml.rb#L54) for a full list.
 
 ### The *make* method
 Takes 2 arguments:
 
 1. The desired QBXML request in a snakecased Symbol or String. For example, ```.make(:sales_tax_code)``` equals SalesTaxCode
-2. a Hash of options. See this method for a full list.
+2. a Hash of options. See this [method](https://github.com/minimul/to_qbxml/blob/master/lib/to_qbxml/to_qbxml.rb#L89) for a full list.
 
 ### Examples:
-See the specs for more examples
+See the [specs](https://github.com/minimul/to_qbxml/blob/master/spec/lib/to_qbxml/to_qbxml_spec.rb) for more examples
 
 ### What about validation?
 This library provides no validation or schema validation. In my experience, it is best to use the [OCR docs](http://developer-static.intuit.com/qbsdk-current/common/newosr/index.html) and the [QBXML validator and SDKTest utilities](https://developer.intuit.com/docs/0250_qb/0010_get_oriented/0060_sdk_components) that come bundled with the standard QBSDK installation. These tools are only available on Windows but if you are wanting to do any serious integration with QuickBooks Desktop then you better have a Windows machine or VM handy. 
 
 ### What about reading and parsing QBXML?
-I suggest using Nokogiri. See the specs for using Nokogiri to parse QBXML.
+I suggest using Nokogiri. See the [specs](https://github.com/minimul/to_qbxml/blob/master/spec/lib/to_qbxml/to_qbxml_spec.rb) for using Nokogiri to parse QBXML.
 Here are some quick examples:
 
 #### Given
