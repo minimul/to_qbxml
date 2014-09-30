@@ -150,7 +150,7 @@ Use the parent node *repeat* to make repeating nodes such as *InvoiceLineAdd* an
 ### Create an iterator query request returning a Nokogiri Document instead of XML
 ```ruby
   n = ToQbxml.new({}, doc: true).make(:customer, action: :query, attrs: { 'iterator' => 'Start'})
-  puts n.at('CustomerQueryRq')['iterator'].content
+  puts n.at('CustomerQueryRq')['iterator']
   ## Output = 'Start'
   puts n.to_xml
 ```
