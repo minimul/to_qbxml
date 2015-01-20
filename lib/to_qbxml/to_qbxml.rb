@@ -22,11 +22,11 @@ class ToQbxml
     @hash = convert_to_qbxml_hash
     xml = hash_to_xml(@hash, @options)
     handler = xml_handler(xml)
-    @options[:doc] ? handler : handler.to_xml
+    @options[:doc] ? handler : handler.to_xml(encoding: 'US-ASCII')
   end
 
   def xml_handler(xml)
-    doc = Nokogiri.XML(xml, nil, @options[:encoding] || 'utf-8')
+    doc = Nokogiri.XML(xml)
     remove_tags_preserve_content(doc, REPEATABLE_KEY)
   end
 

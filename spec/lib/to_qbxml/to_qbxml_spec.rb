@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'spec_helper'
 
 describe ToQbxml do
@@ -40,15 +41,12 @@ describe ToQbxml do
       expect(xml).to match /version=\"12\.0/
     end
 
-    it "should have the default encoding of utf-8" do
-      xml = ToQbxml.new({}).generate
-      expect(xml).to match /encoding=\"utf-8/
+    it "should properly encode special characters" do
+      hash = { name: 'Lè Car <"Häns">'}
+      xml = ToQbxml.new(hash).make(:customer)
+      expect(xml).to match /Name\>L&#232; Car &lt;\"H&#228;ns\"&gt;/
     end
 
-    it "should be able to change the default encoding" do
-      xml = ToQbxml.new({}, encoding: 'windows-1251').generate
-      expect(xml).to match /encoding=\"windows-1251/
-    end
   end
 
   context 'query requests' do
