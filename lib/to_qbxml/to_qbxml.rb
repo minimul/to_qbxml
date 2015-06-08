@@ -1,16 +1,35 @@
 class ToQbxml
-  #attr_reader :hash, :options
-
   ACRONYMS = [/Ap\z/, /Ar/, /Cogs/, /Com\z/, /Uom/, /Qbxml/, /Ui/, /Avs/, /Id\z/,
               /Pin/, /Ssn/, /Clsid/, /Fob/, /Ein/, /Uom/, /Po\z/, /Pin/, /Qb/]
   ATTR_ROOT    = 'xml_attributes'.freeze
   IGNORED_KEYS = [ATTR_ROOT]
-  ON_ERROR = 'stopOnError'
   REPEATABLE_KEY = 'Repeat' 
 
   def initialize(hash, options = {})
     @hash = hash
     @options = options
+    @version = ToQbxml.version
+    @on_error = ToQbxml.on_error
+  end
+
+  def self.configure(&block)
+    yield self
+  end
+
+  def self.version
+    @version ||= '7.0' 
+  end
+
+  def self.version=(number)
+    @version = number
+  end
+
+  def self.on_error
+    @on_error ||= 'stopOnError' 
+  end
+
+  def self.on_error=(err_kind)
+    @on_error = err_kind
   end
 
   def make(type, boilerplate_options = {})
@@ -55,7 +74,7 @@ class ToQbxml
     opts = opts.dup
     opts[:indent]          ||= 0
     opts[:root]            ||= :QBXML
-    opts[:version]         ||= '7.0'
+    opts[:version]         ||= @version
     opts[:attributes]      ||= (hash.delete(ATTR_ROOT) || {})
     opts[:builder]         ||= Builder::XmlMarkup.new(indent: opts[:indent])
     opts[:skip_types]      = true unless opts.key?(:skip_types) 
@@ -92,7 +111,7 @@ class ToQbxml
     {  :qbxml_msgs_rq =>
        [
          {
-           :xml_attributes =>  { "onError" => opts[:on_error] || ON_ERROR},
+           :xml_attributes =>  { "onError" => opts[:on_error] || @on_error},
            head + '_rq' =>
            [
              {

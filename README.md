@@ -18,6 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
+### Configuration
+```
+ToQbxml.configure do |config|
+  config.version = '11.0'
+  config.on_error = 'continueOnError'
+end
+
+```
+
 ### Create an add request
 ```ruby
   def line_item(line_number)

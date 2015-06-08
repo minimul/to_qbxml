@@ -41,6 +41,30 @@ describe ToQbxml do
       expect(xml).to match /version=\"12\.0/
     end
 
+    it "default version is 7.0" do
+      xml = ToQbxml.new({}).generate
+      expect(xml).to match /version=\"7\.0/
+    end
+
+    it "should change system-wide qbxml version to 10.0" do
+      ToQbxml.configure do |config|
+        config.version = '11.0'
+      end
+      xml = ToQbxml.new({}).generate
+      expect(xml).to match /version=\"11\.0/
+    end
+
+    it "default on_error is stopOnError" do
+      xml = ToQbxml.new({}).make(:customer)
+      expect(xml).to match /onError=\"stopOnError/
+    end
+
+    it "should change system-wide on_error" do
+      ToQbxml.on_error = 'continueOnError'
+      xml = ToQbxml.new({}).make(:invoice)
+      expect(xml).to match /onError=\"continueOnError/
+    end
+
     it "should properly encode special characters" do
       hash = { name: 'Lè Car <"Häns">'}
       xml = ToQbxml.new(hash).make(:customer)
