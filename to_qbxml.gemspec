@@ -18,11 +18,11 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency('activesupport', '>= 3.2')
-  gem.add_dependency('nokogiri', '~> 1.6')
-  gem.add_dependency('builder', '~> 3.0')
-  gem.add_dependency('json', '~> 1.8')
+  gem.add_dependency('nokogiri', '>= 1.6')
+  gem.add_dependency('builder', '>= 3.0')
+  gem.add_dependency('json', '>= 1.8')
 
-  gem.add_development_dependency('bundler', '~> 1.5')
-  gem.add_development_dependency('rake', '~> 10.1')
-  gem.add_development_dependency('rspec', '~> 3.1', '>= 3.1.0')
+  gem.add_development_dependency('bundler')
+  gem.add_development_dependency('rake')
+  gem.add_development_dependency('rspec')
 end
