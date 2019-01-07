@@ -55,7 +55,7 @@ end
 
 ```xml
 <?xml version="1.0" encoding="US-ASCII"?>
-<?qbxml version="7.0"?>
+<?qbxml version="13.0"?>
 <QBXML>
   <QBXMLMsgsRq onError="stopOnError">
     <InvoiceAddRq requestID="1">
@@ -116,7 +116,7 @@ Use the parent node *repeat* to make repeating nodes such as *InvoiceLineAdd* an
 
 ```xml
 <?xml version="1.0" encoding="US-ASCII"?>
-<?qbxml version="7.0"?>
+<?qbxml version="13.0"?>
 <QBXML>
   <QBXMLMsgsRq onError="stopOnError">
     <InvoiceModRq requestID="1">
@@ -166,7 +166,7 @@ Use the parent node *repeat* to make repeating nodes such as *InvoiceLineAdd* an
 
 ```xml
 <?xml version="1.0" encoding="US-ASCII"?>
-<?qbxml version="7.0"?>
+<?qbxml version="13.0"?>
 <QBXML>
   <QBXMLMsgsRq onError="stopOnError">
     <CustomerQueryRq requestID="1" iterator="Start"/>
@@ -209,7 +209,7 @@ Here are some quick examples:
 #### Given
 ```xml
 <?xml version="1.0" encoding="US-ASCII"?>
-<?qbxml version="7.0"?>
+<?qbxml version="13.0"?>
 <QBXML>
   <QBXMLMsgsRq onError="stopOnError">
     <InvoiceAddRq requestID="1">

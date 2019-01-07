@@ -41,9 +41,9 @@ describe ToQbxml do
       expect(xml).to match /version=\"12\.0/
     end
 
-    it "default version is 7.0" do
+    it "default version is 13.0" do
       xml = ToQbxml.new({}).generate
-      expect(xml).to match /version=\"7\.0/
+      expect(xml).to match /version=\"13\.0/
     end
 
     it "should change system-wide qbxml version to 10.0" do
