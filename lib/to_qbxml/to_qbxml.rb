@@ -17,7 +17,7 @@ class ToQbxml
   end
 
   def self.version
-    @version ||= '7.0' 
+    @version ||= '13.0' 
   end
 
   def self.version=(number)
