@@ -107,7 +107,7 @@ class ToQbxml
 
   def boilerplate(type, opts = {})
     head = boilerplate_header(type, opts[:action] || 'add')
-    body_hash = opts[:action] == :query ? @hash : { head => @hash }
+    body_hash = [:query, :del].include?(opts[:action]) ? @hash : { head => @hash }
     {  :qbxml_msgs_rq =>
        [
          {
