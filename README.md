@@ -4,7 +4,7 @@ ToQbxml creates QuickBooks XML Requests from a Ruby Hash
 
 ## Installation
 
-**Tested in Ruby versions <= 2.6**
+**Tested in Ruby versions >= 2.6**
 
 Add this line to your application's Gemfile:
 
